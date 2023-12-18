@@ -14,10 +14,18 @@ public class Main {
         Range[] array = new Range[n];
 
         for (int i = 0; i < n; i++) {
-            System.out.println("Введите число начала диапазона :");
-            int start = scanner.nextInt();
-            System.out.println("Введите число конца диапазона :");
-            int end = scanner.nextInt();
+            int start;
+            int end;
+            do{
+                System.out.println("Введите число начала диапазона :");
+                start = scanner.nextInt();
+                System.out.println("Введите число конца диапазона :");
+                end = scanner.nextInt();
+                if(start > end) {
+                    System.out.println("Ошибка, начало: " + start + " больше, чем конец: " + end);
+                    System.out.println("Введите диапазон номер: " + (i + 1) + " ещё раз");
+                }
+            } while (start > end);
             Range range = new Range(start, end);
             array[i] = range;
         }
